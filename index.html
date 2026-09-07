@@ -3,432 +3,520 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Muhammad Zidny Ilhami | Back-End & Full-Stack Developer</title>
-  <meta name="description" content="Portfolio of Muhammad Zidny Ilhami - Back-End Developer specializing in Laravel, Go, Linux Server Automation, and Cloud Infrastructure." />
-  <!-- Tailwind CSS CDN -->
+  <title>Muhammad Zidny Ilhami — Systems, Backend & Infrastructure</title>
+  <meta name="description" content="Portfolio of Muhammad Zidny Ilhami. Software Engineer focusing on Backend architecture, Linux kernel/network tooling, and high-performance automation." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
           colors: {
             brand: {
-              50: '#f0fdf4',
-              500: '#22c55e',
-              600: '#16a34a',
-              700: '#15803d',
+              emerald: '#10b981',
+              accent: '#34d399',
+              dark: '#090d16',
+              surface: '#0f172a',
+              border: '#1e293b'
             }
           }
         }
       }
     }
   </script>
-  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
     body {
+      background-color: #060913;
+      color: #cbd5e1;
       font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
     }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+
+    /* Subtle Engineering Grid Background */
+    .bg-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     }
-    .glass-nav {
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    .border-glow:hover {
+      border-color: rgba(52, 211, 153, 0.4);
+      box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.15);
+    }
+
+    /* Terminal Prompt Animations */
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .cursor-blink {
+      animation: blink 1s infinite;
+    }
+
+    /* Smooth interactive card transitions */
+    .feature-card {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .feature-card:hover {
+      transform: translateY(-3px);
     }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-emerald-500 selection:text-slate-950">
+<body class="bg-grid antialiased selection:bg-emerald-500 selection:text-black">
 
-  <!-- Navbar -->
-  <nav class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#" class="text-xl font-bold tracking-tight flex items-center gap-2">
-        <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30">Z</span>
-        <span>Zidny<span class="text-emerald-400">.dev</span></span>
+  <!-- Floating Minimal Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-4 backdrop-blur-md bg-[#060913]/80 border-b border-slate-800/60">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5 group">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399] transition-transform group-hover:scale-125"></span>
+        <span class="font-mono text-sm tracking-wider font-semibold text-white">zidnyzd<span class="text-emerald-400">@dev</span>:~$</span>
       </a>
 
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-        <a href="#about" class="hover:text-emerald-400 transition-colors">About</a>
-        <a href="#skills" class="hover:text-emerald-400 transition-colors">Skills</a>
-        <a href="#projects" class="hover:text-emerald-400 transition-colors">Projects</a>
-        <a href="#experience" class="hover:text-emerald-400 transition-colors">Experience</a>
-        <a href="#education" class="hover:text-emerald-400 transition-colors">Education</a>
-      </div>
+      <nav class="hidden md:flex items-center gap-8 text-xs font-mono tracking-wide text-slate-400">
+        <a href="#focus" class="hover:text-emerald-400 transition-colors">01.// Focus</a>
+        <a href="#projects" class="hover:text-emerald-400 transition-colors">02.// Systems & Repos</a>
+        <a href="#experience" class="hover:text-emerald-400 transition-colors">03.// Journey</a>
+        <a href="#academic" class="hover:text-emerald-400 transition-colors">04.// Academic</a>
+      </nav>
 
-      <div class="flex items-center gap-4">
-        <a href="CV_MuhammadZidnyIlhami.pdf" download class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all shadow-lg shadow-emerald-500/20">
-          <i data-lucide="download" class="w-4 h-4"></i>
-          <span>Download CV</span>
+      <div class="flex items-center gap-3">
+        <a href="CV_MuhammadZidnyIlhami.pdf" download class="font-mono text-xs px-4 py-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-2 transition-all">
+          <i data-lucide="file-down" class="w-3.5 h-3.5"></i>
+          <span>Get CV (PDF)</span>
         </a>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <!-- Hero Section -->
-  <section class="pt-36 pb-20 px-6 max-w-6xl mx-auto">
-    <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
-      <div class="max-w-2xl">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-6">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          Available for Opportunities
+  <!-- Hero Section: Code & Systems Mindset -->
+  <section class="pt-36 pb-16 px-6 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <div class="lg:col-span-7">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 font-mono text-xs mb-6">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span>S1 Informatics (Cum Laude, GPA 3.85)</span>
         </div>
-        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-          Crafting Robust <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Back-End Systems</span> & Automation.
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-6">
+          Backend Engineer. <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">Linux & Network</span> Tinkerer.
         </h1>
-        <p class="text-lg text-slate-400 mb-8 leading-relaxed">
-          Hi, I'm <strong class="text-slate-200">Muhammad Zidny Ilhami</strong>. An Informatics graduate (Cum Laude, 3.85 GPA) and Developer specializing in Laravel, Go, Linux Server Architecture, and RESTful API Integrations.
+
+        <p class="text-base sm:text-lg text-slate-400 leading-relaxed max-w-xl mb-8 font-normal">
+          I build pragmatic backend services, automated server infrastructure, and native utilities. Passionate about Go, Laravel, custom Linux workflows, and robust API delivery.
         </p>
 
-        <div class="flex flex-wrap items-center gap-4">
-          <a href="#projects" class="px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold transition-all shadow-lg shadow-emerald-500/20 inline-flex items-center gap-2">
-            <span>Explore Projects</span>
+        <div class="flex flex-wrap items-center gap-3 font-mono text-xs">
+          <a href="#projects" class="px-5 py-3 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold transition-all flex items-center gap-2 shadow-lg shadow-emerald-500/20">
+            <span>Inspect Repositories</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>
-          <a href="https://github.com/zidnyzd" target="_blank" class="px-6 py-3 rounded-xl glass-card hover:bg-white/5 font-semibold text-slate-200 transition-all inline-flex items-center gap-2">
+
+          <a href="https://github.com/zidnyzd" target="_blank" class="px-5 py-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 flex items-center gap-2 transition-all">
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             <span>GitHub Profile</span>
           </a>
-          <a href="https://linkedin.com/in/muhammad-zidny-ilhami" target="_blank" class="px-6 py-3 rounded-xl glass-card hover:bg-white/5 font-semibold text-slate-200 transition-all inline-flex items-center gap-2">
+
+          <a href="https://linkedin.com/in/muhammad-zidny-ilhami" target="_blank" class="px-5 py-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 flex items-center gap-2 transition-all">
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             <span>LinkedIn</span>
           </a>
         </div>
       </div>
 
-      <!-- Hero Card / Quick Stat -->
-      <div class="w-full lg:w-96 glass-card p-6 rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden">
-        <div class="absolute -top-12 -right-12 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl"></div>
-        <div class="flex items-center gap-4 mb-6">
-          <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 text-2xl font-black">
-            ZI
+      <!-- Live Interactive Terminal Artifact -->
+      <div class="lg:col-span-5">
+        <div class="rounded-xl border border-slate-800 bg-[#0c1222] shadow-2xl overflow-hidden font-mono text-xs">
+          <!-- Terminal Header -->
+          <div class="px-4 py-3 bg-[#080d19] border-b border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+            </div>
+            <div class="text-slate-500 text-[11px]">zidny@workstation:~</div>
+            <div class="text-slate-600 text-[10px]">bash</div>
           </div>
-          <div>
-            <h3 class="font-bold text-lg text-white">M. Zidny Ilhami</h3>
-            <p class="text-xs text-slate-400">Sidoarjo, East Java, Indonesia</p>
+
+          <!-- Terminal Body -->
+          <div class="p-5 space-y-4 text-slate-300 leading-relaxed">
+            <div>
+              <span class="text-emerald-400 font-bold">zidny@linux:~$</span> whoami
+              <div class="text-slate-400 mt-1 pl-3 border-l-2 border-slate-800">
+                Muhammad Zidny Ilhami<br>
+                <span class="text-slate-500">Degree:</span> S1 Informatika (Universitas Muhammadiyah Sidoarjo)<br>
+                <span class="text-slate-500">Honors:</span> Cum Laude (GPA 3.85 / 4.00, 3.5 Years)
+              </div>
+            </div>
+
+            <div>
+              <span class="text-emerald-400 font-bold">zidny@linux:~$</span> cat ~/.capabilities
+              <div class="text-slate-400 mt-1 pl-3 border-l-2 border-slate-800 space-y-1">
+                <div><span class="text-teal-400">Core_Stack:</span> Laravel 12, PHP, Go, Python, C++</div>
+                <div><span class="text-teal-400">Infra_&_OS:</span> Linux (Kernel, PWM, Systemd), Nginx, Shell</div>
+                <div><span class="text-teal-400">Database:</span> MySQL, SQLite, IndexedDB</div>
+                <div><span class="text-teal-400">Integrations:</span> Midtrans Gateway, Telegram Bots, Cloudflare</div>
+              </div>
+            </div>
+
+            <div>
+              <span class="text-emerald-400 font-bold">zidny@linux:~$</span> ping -c 1 zidstore.net
+              <div class="text-emerald-400/90 mt-1 pl-3 border-l-2 border-emerald-500/40">
+                64 bytes from zidstore.net: icmp_seq=1 ttl=58 time=14.2 ms<br>
+                Status: <span class="text-emerald-300 font-bold">LIVE & AUTOMATED</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-1 text-slate-400">
+              <span class="text-emerald-400 font-bold">zidny@linux:~$</span>
+              <span class="w-2 h-4 bg-emerald-400 cursor-blink inline-block"></span>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="space-y-3 text-sm">
-          <div class="flex justify-between items-center py-2 border-b border-slate-800/60">
-            <span class="text-slate-400">Education</span>
-            <span class="text-slate-200 font-medium">B.Inf (GPA 3.85/4.00)</span>
-          </div>
-          <div class="flex justify-between items-center py-2 border-b border-slate-800/60">
-            <span class="text-slate-400">Focus</span>
-            <span class="text-emerald-400 font-medium">Back-End & DevOps</span>
-          </div>
-          <div class="flex justify-between items-center py-2 border-b border-slate-800/60">
-            <span class="text-slate-400">Email</span>
-            <span class="text-slate-200 font-mono text-xs">zidnyilhami01@gmail.com</span>
-          </div>
-          <div class="flex justify-between items-center py-2">
-            <span class="text-slate-400">Location</span>
-            <span class="text-slate-200 font-medium">Indonesia (GMT+7)</span>
-          </div>
+    </div>
+  </section>
+
+  <!-- Engineering Focus Areas (No generic SaaS cards) -->
+  <section id="focus" class="py-16 px-6 max-w-6xl mx-auto border-t border-slate-800/60">
+    <div class="mb-10">
+      <span class="font-mono text-xs text-emerald-400 tracking-widest uppercase">// Core Competencies</span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Specialized Engineering Focus</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <!-- Item 1 -->
+      <div class="feature-card p-6 rounded-xl bg-slate-900/50 border border-slate-800 border-glow">
+        <div class="text-emerald-400 font-mono text-xs mb-3 font-semibold">01. SERVER-SIDE ARCHITECTURE</div>
+        <h3 class="text-lg font-bold text-white mb-2">Backend & APIs</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+          Designing clean REST endpoints, handling asynchronous queues, and integrating reliable payment infrastructure (Midtrans) with transactional integrity.
+        </p>
+        <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-300">
+          <span class="px-2 py-0.5 rounded bg-slate-800">Laravel 12</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800">CodeIgniter 4</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800">PHP 8+</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800">RESTful</span>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="feature-card p-6 rounded-xl bg-slate-900/50 border border-slate-800 border-glow">
+        <div class="text-teal-400 font-mono text-xs mb-3 font-semibold">02. PERFORMANCE & UTILITIES</div>
+        <h3 class="text-lg font-bold text-white mb-2">Go & System Tooling</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+          Building fast, low-overhead compiled binaries in Go. Bridging system libraries via CGO (WebKitGTK, libnotify) and managing local databases with SQLite.
+        </p>
+        <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-300">
+          <span class="px-2 py-0.5 rounded bg-slate-800">Go (Golang)</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800">WebKitGTK</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800">SQLite</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800">CGO / GTK3</span>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="feature-card p-6 rounded-xl bg-slate-900/50 border border-slate-800 border-glow">
+        <div class="text-cyan-400 font-mono text-xs mb-3 font-semibold">03. INFRASTRUCTURE & HARDENING</div>
+        <h3 class="text-lg font-bold text-white mb-2">Linux & Network Automation</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+          Writing hands-on shell scripts for server hardening, automated multi-protocol VPN setup (V2Ray, OpenVPN, SSH), Nginx reverse proxying, and DNS policies.
+        </p>
+        <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-300">
+          <span class="px-2 py-0.5 rounded bg-slate-800">Bash Scripting</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800">Linux Adm</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800">Nginx</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800">Cloudflare</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="py-20 px-6 max-w-6xl mx-auto border-t border-slate-900">
-    <div class="mb-12">
-      <h2 class="text-xs font-bold text-emerald-400 tracking-wider uppercase mb-2">Technical Arsenal</h2>
-      <h3 class="text-3xl font-extrabold text-white">Skills & Competencies</h3>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <!-- Back-End & Languages -->
-      <div class="glass-card p-6 rounded-2xl">
-        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
-          <i data-lucide="server" class="w-5 h-5"></i>
-        </div>
-        <h4 class="font-bold text-lg text-white mb-3">Backend & Languages</h4>
-        <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">PHP</span>
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">Laravel 12</span>
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">CodeIgniter 4</span>
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">Go (Golang)</span>
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">Python</span>
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">JavaScript</span>
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">C++</span>
-        </div>
-      </div>
-
-      <!-- Databases & APIs -->
-      <div class="glass-card p-6 rounded-2xl">
-        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
-          <i data-lucide="database" class="w-5 h-5"></i>
-        </div>
-        <h4 class="font-bold text-lg text-white mb-3">Data & Integrations</h4>
-        <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">MySQL</span>
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">MariaDB</span>
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">SQLite</span>
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">RESTful APIs</span>
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">Payment Gateway (Midtrans)</span>
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">Telegram Bot APIs</span>
-        </div>
-      </div>
-
-      <!-- Infrastructure & DevOps -->
-      <div class="glass-card p-6 rounded-2xl">
-        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
-          <i data-lucide="terminal" class="w-5 h-5"></i>
-        </div>
-        <h4 class="font-bold text-lg text-white mb-3">Linux, DevOps & Tools</h4>
-        <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">Linux Administration</span>
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">Shell Scripting (Bash)</span>
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">Nginx</span>
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">Git & GitHub</span>
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">VPN & Tunneling (V2Ray/OpenVPN)</span>
-          <span class="px-3 py-1 bg-slate-800/80 rounded-lg text-xs font-medium text-slate-300">Cloudflare</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Projects -->
-  <section id="projects" class="py-20 px-6 max-w-6xl mx-auto border-t border-slate-900">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+  <!-- Featured Repositories & Implementations -->
+  <section id="projects" class="py-16 px-6 max-w-6xl mx-auto border-t border-slate-800/60">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
       <div>
-        <h2 class="text-xs font-bold text-emerald-400 tracking-wider uppercase mb-2">Featured Work</h2>
-        <h3 class="text-3xl font-extrabold text-white">Highlighted Projects</h3>
+        <span class="font-mono text-xs text-emerald-400 tracking-widest uppercase">// Systems & Implementations</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Featured Technical Repositories</h2>
       </div>
-      <a href="https://github.com/zidnyzd" target="_blank" class="mt-4 md:mt-0 text-sm font-semibold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1">
-        <span>View all on GitHub</span>
-        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+      <a href="https://github.com/zidnyzd" target="_blank" class="mt-3 sm:mt-0 font-mono text-xs text-slate-400 hover:text-emerald-400 flex items-center gap-1">
+        <span>View all 30+ repositories</span>
+        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
       </a>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-      <!-- WhatsApp Linux Client -->
-      <div class="glass-card p-6 rounded-2xl flex flex-col justify-between hover:border-emerald-500/40 transition-all group">
+      <!-- Repo 1: WhatsApp Linux Client (Recent) -->
+      <div class="feature-card rounded-xl bg-[#0b101e] border border-slate-800 p-6 flex flex-col justify-between border-glow relative overflow-hidden group">
+        <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full blur-2xl group-hover:bg-emerald-500/10 transition-colors"></div>
         <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20">Go & WebKitGTK</span>
-            <a href="https://github.com/zidnyzd/whatsapp-linux" target="_blank" class="text-slate-400 hover:text-white">
-              <i data-lucide="external-link" class="w-4 h-4"></i>
-            </a>
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-mono text-xs px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">Go • GTK3 • Linux Native</span>
+            <span class="font-mono text-slate-500 text-xs">v1.0.0</span>
           </div>
-          <h4 class="font-bold text-xl text-white group-hover:text-emerald-400 transition-colors mb-2">
-            WhatsApp Linux Client
-          </h4>
-          <p class="text-slate-400 text-sm leading-relaxed mb-6">
-            Lightweight, standalone desktop WhatsApp client for Linux. Built with Go and WebKit2GTK-4.1 featuring native libnotify desktop notifications, persistent session caching, and memory optimizations.
+          <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors mb-2">
+            whatsapp-linux
+          </h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6 font-normal">
+            Lightweight, standalone WhatsApp desktop client tailored for Linux. Integrates WebKit2GTK with native <code class="text-emerald-300 font-mono">libnotify</code> desktop alerts, persistent IndexedDB cookie caching, and JavaScript memory pressure thresholds.
           </p>
         </div>
-        <div class="flex items-center justify-between pt-4 border-t border-slate-800/60 text-xs text-slate-400">
-          <span class="flex items-center gap-1"><i data-lucide="code" class="w-3.5 h-3.5 text-emerald-400"></i> Go / CGO / GTK3</span>
-          <a href="https://github.com/zidnyzd/whatsapp-linux" target="_blank" class="text-emerald-400 font-semibold hover:underline">Source Code &rarr;</a>
-        </div>
-      </div>
 
-      <!-- ZidStore Platform & API -->
-      <div class="glass-card p-6 rounded-2xl flex flex-col justify-between hover:border-emerald-500/40 transition-all group">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20">Laravel 12 & Automation</span>
-            <a href="https://zidstore.net" target="_blank" class="text-slate-400 hover:text-white" title="Visit Live Website">
-              <i data-lucide="external-link" class="w-4 h-4"></i>
-            </a>
+        <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+          <div class="flex items-center gap-4 text-slate-400">
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-cyan-400"></span> Go 1.23</span>
+            <span>MIT License</span>
           </div>
-          <h4 class="font-bold text-xl text-white group-hover:text-emerald-400 transition-colors mb-2">
-            ZidStore Platform & API
-          </h4>
-          <p class="text-slate-400 text-sm leading-relaxed mb-6">
-            Full-stack web platform built with Laravel 12 to support automated digital service platforms. Integrates Midtrans payment gateway, Telegram bot management, automated VPS provisioning, and database sync.
-          </p>
-        </div>
-        <div class="flex items-center justify-between pt-4 border-t border-slate-800/60 text-xs text-slate-400">
-          <span class="flex items-center gap-1"><i data-lucide="globe" class="w-3.5 h-3.5 text-emerald-400"></i> zidstore.net</span>
-          <a href="https://zidstore.net" target="_blank" class="text-emerald-400 font-semibold hover:underline flex items-center gap-1">
-            <span>Visit Website</span>
+          <a href="https://github.com/zidnyzd/whatsapp-linux" target="_blank" class="text-emerald-400 hover:underline flex items-center gap-1 font-semibold">
+            <span>github.com/zidnyzd/whatsapp-linux</span>
             <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
           </a>
         </div>
       </div>
 
-      <!-- Linux Single Command Server Toolkit -->
-      <div class="glass-card p-6 rounded-2xl flex flex-col justify-between hover:border-emerald-500/40 transition-all group">
+      <!-- Repo 2: ZidStore Platform (Live Web) -->
+      <div class="feature-card rounded-xl bg-[#0b101e] border border-slate-800 p-6 flex flex-col justify-between border-glow relative overflow-hidden group">
+        <div class="absolute top-0 right-0 w-24 h-24 bg-teal-500/5 rounded-full blur-2xl group-hover:bg-teal-500/10 transition-colors"></div>
         <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20">DevOps & Automation</span>
-            <a href="https://github.com/zidnyzd/linux_singlecmd" target="_blank" class="text-slate-400 hover:text-white">
-              <i data-lucide="external-link" class="w-4 h-4"></i>
-            </a>
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-mono text-xs px-2.5 py-1 rounded bg-teal-500/10 text-teal-400 border border-teal-500/20 font-medium">Production Platform</span>
+            <span class="font-mono text-emerald-400 text-xs flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              Live Service
+            </span>
           </div>
-          <h4 class="font-bold text-xl text-white group-hover:text-emerald-400 transition-colors mb-2">
-            Linux SingleCmd Toolkit
-          </h4>
-          <p class="text-slate-400 text-sm leading-relaxed mb-6">
-            Collection of automated shell scripts for Linux server administration, hardening security, optimizing system performance, and one-liner server deployment utilities.
+          <h3 class="text-xl font-bold text-white group-hover:text-teal-400 transition-colors mb-2">
+            ZidStore Digital Services & API
+          </h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6 font-normal">
+            Automated production platform built with Laravel 12. Orchestrates digital service subscriptions, connects real-time payment callbacks via Midtrans, manages Telegram Bot API endpoints, and triggers automated VPS provisioning.
           </p>
         </div>
-        <div class="flex items-center justify-between pt-4 border-t border-slate-800/60 text-xs text-slate-400">
-          <span class="flex items-center gap-1"><i data-lucide="code" class="w-3.5 h-3.5 text-emerald-400"></i> Shell / Bash / Linux</span>
-          <a href="https://github.com/zidnyzd/linux_singlecmd" target="_blank" class="text-emerald-400 font-semibold hover:underline">View Repository &rarr;</a>
-        </div>
-      </div>
 
-      <!-- Finance Tracker & Academic Systems -->
-      <div class="glass-card p-6 rounded-2xl flex flex-col justify-between hover:border-emerald-500/40 transition-all group">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20">Go & SQLite</span>
-            <a href="https://github.com/zidnyzd/finance-tracker" target="_blank" class="text-slate-400 hover:text-white">
-              <i data-lucide="external-link" class="w-4 h-4"></i>
-            </a>
+        <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+          <div class="flex items-center gap-3 text-slate-400">
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-red-500"></span> Laravel 12</span>
+            <span>Midtrans API</span>
           </div>
-          <h4 class="font-bold text-xl text-white group-hover:text-emerald-400 transition-colors mb-2">
-            Finance Tracker & Private Scheduling
-          </h4>
-          <p class="text-slate-400 text-sm leading-relaxed mb-6">
-            Lightweight personal finance ledger and private tutoring scheduling system built with Go, SQLite, and responsive front-end dashboard interfaces.
-          </p>
-        </div>
-        <div class="flex items-center justify-between pt-4 border-t border-slate-800/60 text-xs text-slate-400">
-          <span class="flex items-center gap-1"><i data-lucide="code" class="w-3.5 h-3.5 text-emerald-400"></i> Go / SQLite / Bootstrap</span>
-          <a href="https://github.com/zidnyzd/finance-tracker" target="_blank" class="text-emerald-400 font-semibold hover:underline">View Repository &rarr;</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Experience & Education Section -->
-  <section id="experience" class="py-20 px-6 max-w-6xl mx-auto border-t border-slate-900">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      <!-- Experience Column -->
-      <div>
-        <div class="mb-8">
-          <h2 class="text-xs font-bold text-emerald-400 tracking-wider uppercase mb-2">Career Path</h2>
-          <h3 class="text-3xl font-extrabold text-white">Experience</h3>
-        </div>
-
-        <div class="space-y-6 border-l-2 border-slate-800 pl-6 ml-2">
-
-          <div class="relative">
-            <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-emerald-500 ring-4 ring-slate-950"></div>
-            <span class="text-xs font-bold text-emerald-400">Sep 2025 – Present</span>
-            <h4 class="text-lg font-bold text-white mt-1">Web Developer (Self-Initiated Project)</h4>
-            <p class="text-sm text-slate-400 mt-2 leading-relaxed">
-              Developed full-stack web applications using Laravel 12 to support automated digital-service platforms. Implemented Midtrans payment endpoints, authentication, and database optimization for production-level reliability.
-            </p>
-          </div>
-
-          <div class="relative">
-            <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-slate-700 ring-4 ring-slate-950"></div>
-            <span class="text-xs font-bold text-slate-400">Nov – Dec 2024</span>
-            <h4 class="text-lg font-bold text-white mt-1">Web Developer Intern — KOMINFO</h4>
-            <p class="text-sm text-slate-400 mt-2 leading-relaxed">
-              Developed a web-based inventory tracking system with real-time updates and integrated Google Maps API for equipment visualization and management efficiency.
-            </p>
-          </div>
-
-          <div class="relative">
-            <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-slate-700 ring-4 ring-slate-950"></div>
-            <span class="text-xs font-bold text-slate-400">Sep 2023 – Feb 2024</span>
-            <h4 class="text-lg font-bold text-white mt-1">Web Developer — BUEKA Aisyiyah</h4>
-            <p class="text-sm text-slate-400 mt-2 leading-relaxed">
-              Studi Independen: Built a full-stack PHP web application for recording and managing financial member contributions with interactive administrative dashboards.
-            </p>
-          </div>
-
-          <div class="relative">
-            <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-slate-700 ring-4 ring-slate-950"></div>
-            <span class="text-xs font-bold text-slate-400">Jan 2022 – Feb 2025</span>
-            <h4 class="text-lg font-bold text-white mt-1">Informatics Laboratory Assistant — UMSIDA</h4>
-            <p class="text-sm text-slate-400 mt-2 leading-relaxed">
-              Served 2 years 7 months in the IT Support Division maintaining lab servers and network infrastructure, and 6 months in the Programming Division mentoring junior students in algorithms and programming.
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Education Column -->
-      <div id="education">
-        <div class="mb-8">
-          <h2 class="text-xs font-bold text-emerald-400 tracking-wider uppercase mb-2">Academic Background</h2>
-          <h3 class="text-3xl font-extrabold text-white">Education</h3>
-        </div>
-
-        <div class="space-y-6 border-l-2 border-slate-800 pl-6 ml-2">
-
-          <div class="relative">
-            <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-emerald-500 ring-4 ring-slate-950"></div>
-            <span class="text-xs font-bold text-emerald-400">Aug 2021 – Feb 2025</span>
-            <h4 class="text-lg font-bold text-white mt-1">Universitas Muhammadiyah Sidoarjo</h4>
-            <p class="text-sm font-semibold text-emerald-300">Bachelor of Informatics — GPA 3.85 / 4.00 (Cum Laude)</p>
-            <p class="text-sm text-slate-400 mt-2 leading-relaxed">
-              Graduated accelerated in 3.5 years. Active laboratory assistant in IT Support and Software Programming divisions.
-            </p>
-          </div>
-
-          <div class="relative">
-            <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-slate-700 ring-4 ring-slate-950"></div>
-            <span class="text-xs font-bold text-slate-400">Aug 2018 – Feb 2021</span>
-            <h4 class="text-lg font-bold text-white mt-1">SMAN 1 Porong</h4>
-            <p class="text-sm text-slate-400 mt-1">Social Sciences Program</p>
-          </div>
-
-        </div>
-
-        <!-- Academic Projects Box -->
-        <div class="mt-12 glass-card p-6 rounded-2xl">
-          <h4 class="font-bold text-lg text-white mb-2 flex items-center gap-2">
-            <i data-lucide="book-open" class="w-4 h-4 text-emerald-400"></i>
-            <span>Academic Projects Highlight</span>
-          </h4>
-          <p class="text-xs font-semibold text-emerald-400 mb-2">Kampoeng Samiler Website (Back-End)</p>
-          <p class="text-sm text-slate-400 leading-relaxed">
-            Migrated static institutional web assets into an interactive dynamic web application using PHP, Bootstrap, dynamic news management, and secure administrative authentication.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact & Footer -->
-  <footer class="py-16 px-6 border-t border-slate-900 glass-card mt-20">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-      <div>
-        <h4 class="text-2xl font-black text-white tracking-tight">Let's Connect & Collaborate</h4>
-        <p class="text-sm text-slate-400 mt-1">Open for software engineering roles, backend contracts, and technical consulting.</p>
-        <div class="mt-4 flex items-center gap-4 text-sm font-medium">
-          <a href="mailto:zidnyilhami01@gmail.com" class="text-emerald-400 hover:underline flex items-center gap-1.5">
-            <i data-lucide="mail" class="w-4 h-4"></i>
-            <span>zidnyilhami01@gmail.com</span>
+          <a href="https://zidstore.net" target="_blank" class="text-teal-400 hover:underline flex items-center gap-1 font-semibold">
+            <span>zidstore.net</span>
+            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
           </a>
         </div>
       </div>
 
-      <div class="flex items-center gap-4">
-        <a href="CV_MuhammadZidnyIlhami.pdf" download class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm inline-flex items-center gap-2 shadow-lg shadow-emerald-500/20">
-          <i data-lucide="download" class="w-4 h-4"></i>
-          <span>Download CV (PDF)</span>
+      <!-- Repo 3: Linux Single Command Script Toolkit -->
+      <div class="feature-card rounded-xl bg-[#0b101e] border border-slate-800 p-6 flex flex-col justify-between border-glow relative overflow-hidden group">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-mono text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-medium">DevOps & Automation</span>
+            <span class="font-mono text-slate-500 text-xs">Public</span>
+          </div>
+          <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors mb-2">
+            linux_singlecmd
+          </h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6 font-normal">
+            A battle-tested repository of automated one-liner shell utilities for Linux server setup. Features unattended system hardening, firewall configuration, performance optimization, and server inspection scripts.
+          </p>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+          <div class="flex items-center gap-3 text-slate-400">
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> Shell / Bash</span>
+            <span>Ubuntu / Debian</span>
+          </div>
+          <a href="https://github.com/zidnyzd/linux_singlecmd" target="_blank" class="text-emerald-400 hover:underline flex items-center gap-1 font-semibold">
+            <span>Repository &rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Repo 4: Finance Tracker & Scheduling -->
+      <div class="feature-card rounded-xl bg-[#0b101e] border border-slate-800 p-6 flex flex-col justify-between border-glow relative overflow-hidden group">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-mono text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-medium">Full-Stack Application</span>
+            <span class="font-mono text-slate-500 text-xs">Proprietary</span>
+          </div>
+          <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors mb-2">
+            finance-tracker & les-private
+          </h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6 font-normal">
+            Dual personal productivity systems. Features an offline-first transaction ledger and private tutoring class scheduler designed with Go, fast SQLite transactions, and responsive front-end UI.
+          </p>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+          <div class="flex items-center gap-3 text-slate-400">
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-cyan-400"></span> Go</span>
+            <span>SQLite Database</span>
+          </div>
+          <a href="https://github.com/zidnyzd/finance-tracker" target="_blank" class="text-emerald-400 hover:underline flex items-center gap-1 font-semibold">
+            <span>Repository &rarr;</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Work History & Academic Journey -->
+  <section id="experience" class="py-16 px-6 max-w-6xl mx-auto border-t border-slate-800/60">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      
+      <!-- Left Column: Work Experience -->
+      <div class="lg:col-span-7">
+        <div class="mb-8">
+          <span class="font-mono text-xs text-emerald-400 tracking-widest uppercase">// Career Timeline</span>
+          <h2 class="text-2xl font-bold text-white mt-1">Professional Experience</h2>
+        </div>
+
+        <div class="space-y-8 pl-6 border-l border-slate-800 relative">
+
+          <!-- Job 1 -->
+          <div class="relative">
+            <div class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-emerald-400 ring-4 ring-[#060913]"></div>
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <h3 class="text-base font-bold text-white">Web Developer (Self-Initiated Project)</h3>
+              <span class="font-mono text-xs text-emerald-400">Sep 2025 – Present</span>
+            </div>
+            <p class="text-xs text-slate-400 font-mono mt-0.5">ZidStore Platform Architecture</p>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Architected and maintained the production system with Laravel 12. Engineered automated webhook handlers for Midtrans payment confirmations, user session security, and automated server provisioning.
+            </p>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="relative">
+            <div class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-slate-700 ring-4 ring-[#060913]"></div>
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <h3 class="text-base font-bold text-white">Web Developer Intern</h3>
+              <span class="font-mono text-xs text-slate-500">Nov – Dec 2024</span>
+            </div>
+            <p class="text-xs text-slate-400 font-mono mt-0.5">KOMINFO (Dinas Komunikasi dan Informatika)</p>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Built an internal real-time hardware inventory tracking system. Integrated Google Maps API visualization for geospatial hardware management and asset tracking.
+            </p>
+          </div>
+
+          <!-- Job 3 -->
+          <div class="relative">
+            <div class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-slate-700 ring-4 ring-[#060913]"></div>
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <h3 class="text-base font-bold text-white">Web Developer (Studi Independen)</h3>
+              <span class="font-mono text-xs text-slate-500">Sep 2023 – Feb 2024</span>
+            </div>
+            <p class="text-xs text-slate-400 font-mono mt-0.5">Badan Usaha Ekonomi Keluarga Aisyiyah (BUEKA)</p>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Developed a full-stack database application to digitize organizational member savings and loan contributions, reducing manual paperwork and providing transparent audit reports.
+            </p>
+          </div>
+
+          <!-- Job 4 -->
+          <div class="relative">
+            <div class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-slate-700 ring-4 ring-[#060913]"></div>
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <h3 class="text-base font-bold text-white">Informatics Laboratory Assistant</h3>
+              <span class="font-mono text-xs text-slate-500">Jan 2022 – Feb 2025</span>
+            </div>
+            <p class="text-xs text-slate-400 font-mono mt-0.5">Universitas Muhammadiyah Sidoarjo</p>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Maintained laboratory workstations, networks, and servers in the IT Support Division for 2 years 7 months. Served 6 months in the Programming Division tutoring undergraduate students in data structures and programming basics.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Academic & Honors -->
+      <div id="academic" class="lg:col-span-5">
+        <div class="mb-8">
+          <span class="font-mono text-xs text-emerald-400 tracking-widest uppercase">// Formal Education</span>
+          <h2 class="text-2xl font-bold text-white mt-1">Academic Credentials</h2>
+        </div>
+
+        <div class="p-6 rounded-xl bg-slate-900/40 border border-slate-800 space-y-6">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-emerald-400 font-semibold">Aug 2021 – Feb 2025</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 font-mono">Cum Laude</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mt-1">Universitas Muhammadiyah Sidoarjo</h3>
+            <p class="text-sm text-slate-300 font-medium mt-1">Bachelor of Informatics (S1 Informatika)</p>
+            <div class="mt-3 p-3 rounded bg-[#070b14] border border-slate-800 font-mono text-xs text-slate-400 space-y-1">
+              <div><span class="text-slate-500">GPA Score:</span> <strong class="text-emerald-400">3.85 / 4.00</strong></div>
+              <div><span class="text-slate-500">Study Duration:</span> <strong>3.5 Years</strong> (Accelerated)</div>
+              <div><span class="text-slate-500">Focus:</span> Software Engineering & Systems</div>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-slate-800">
+            <span class="font-mono text-xs text-slate-500 font-semibold">Aug 2018 – Feb 2021</span>
+            <h4 class="text-base font-bold text-white mt-1">SMAN 1 Porong</h4>
+            <p class="text-xs text-slate-400 mt-1">Social Sciences Program</p>
+          </div>
+
+          <div class="pt-6 border-t border-slate-800">
+            <div class="text-xs font-mono text-slate-400 mb-2 font-semibold">KEY ACADEMIC PROJECT</div>
+            <h4 class="text-sm font-bold text-white">Kampoeng Samiler Dynamic Web Migration</h4>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+              Converted static HTML web pages into an authenticated dynamic web portal using PHP, dynamic routing, relational MySQL schema, and administrative content management.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Technical Footer -->
+  <footer class="py-14 px-6 border-t border-slate-800/60 bg-[#060913]">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span class="font-mono text-xs font-bold text-white uppercase tracking-wider">Muhammad Zidny Ilhami</span>
+        </div>
+        <p class="text-xs text-slate-500 font-mono">
+          Available for backend engineering roles, server contracts, and technical consulting.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="mailto:zidnyilhami01@gmail.com" class="font-mono text-xs px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-emerald-400 border border-slate-800 flex items-center gap-2 transition-all">
+          <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+          <span>zidnyilhami01@gmail.com</span>
         </a>
-        <a href="https://github.com/zidnyzd" target="_blank" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-slate-300 hover:text-white hover:border-emerald-500/50">
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+
+        <a href="https://github.com/zidnyzd" target="_blank" class="p-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800 transition-all" title="GitHub Profile">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
-        <a href="https://linkedin.com/in/muhammad-zidny-ilhami" target="_blank" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-slate-300 hover:text-white hover:border-emerald-500/50">
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+
+        <a href="https://linkedin.com/in/muhammad-zidny-ilhami" target="_blank" class="p-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800 transition-all" title="LinkedIn Profile">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
         </a>
       </div>
+
     </div>
 
-    <div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
-      <p>&copy; 2026 Muhammad Zidny Ilhami. Hosted freely on GitHub Pages.</p>
-      <p class="mt-2 sm:mt-0">Built with modern HTML, Tailwind CSS & Lucide Icons.</p>
+    <div class="max-w-6xl mx-auto mt-8 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-slate-600">
+      <div>&copy; 2026 Muhammad Zidny Ilhami. Built with precision and clarity.</div>
+      <div class="mt-2 sm:mt-0">Free hosting on GitHub Pages</div>
     </div>
   </footer>
 
